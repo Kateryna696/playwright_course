@@ -6,11 +6,11 @@ test.describe.parallel('Registration Form suit', () =>{
     const randomInt = Math.floor(Math.random() * 10000);
     const uniquEmail =`aqa.kustova+${randomInt}@gmail.com`; 
     const password='Kat12345';
-    const url ='https://guest:welcome2qauto@qauto.forstudy.space/'
+   
     
     test.beforeEach('', async ({page})=>{
        regPage = new RegPage(page);
-       await page.goto(url);
+       await page.goto('/');
        await regPage.openSignUpForm();
     });
 
@@ -150,6 +150,6 @@ test.describe.parallel('Registration Form suit', () =>{
         await regPage.signupPassword.fill(password);
         await regPage.signupRepeatPassword.fill(password);
         await regPage.registerButton.click();
-        await expect(page).toHaveURL('https://qauto.forstudy.space/panel/garage');
+        await expect(page).toHaveURL(`https://qauto.forstudy.space/panel/garage`);
     });
 })
