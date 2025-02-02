@@ -41,7 +41,14 @@ export default defineConfig({
 
     {
       name: 'regression',
-      use: { ...devices['Desktop Chrome'] }
+      use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup']
+    },
+
+    {
+      name: 'api-tests',
+      use: { ...devices['Desktop Chrome'] },
+      testMatch: '**api/*.spec.ts'
     },
 
    /* {
