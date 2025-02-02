@@ -14,17 +14,17 @@ type garagePageTypes = {
 };
 
 export const test = base.extend<garagePageTypes>({
-    userGaragePage: async ({ page }, use) => {
-        await page.goto('/');
+    userGaragePage: async ({ browser }, use) => {
+        const context = await browser.newContext({
+            storageState: './test-data/states/userOne.json'
+        });
+        const page = await context.newPage();
         homePage = new HomePage(page);
         regPage = new RegPage(page);
         garagePage = new GaragePage(page);
         loginFrom = new LoginForm(page);
-
         await page.goto('/');
-        await homePage.openSignInForm();
-        await loginFrom.loginSuccess('kustova.kate+101@gmail.com', 'Kat12345');
-
         await use(garagePage);
+        await page.close();
     }
 })

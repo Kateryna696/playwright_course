@@ -41,8 +41,7 @@ export default defineConfig({
 
     {
       name: 'regression',
-      use: { ...devices['Desktop Chrome'] },
-      dependencies: ['setup']
+      use: { ...devices['Desktop Chrome'] }
     },
 
    /* {
