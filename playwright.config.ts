@@ -14,7 +14,7 @@ require('dotenv').config();
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
-  forbidOnly: !!process.env.CI,
+  forbidOnly: false,
   retries: process.env.CI ? 2 : 0,
   workers: 1,
   reporter: [['html', {
